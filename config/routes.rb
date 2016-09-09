@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   resources :firstmodels do
     resources :secondmodels
   end
+  resources :secondmodels do
+    resources :thirdmodels
+  end
 end

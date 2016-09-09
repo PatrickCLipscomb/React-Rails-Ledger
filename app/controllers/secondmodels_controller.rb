@@ -1,7 +1,7 @@
 class SecondmodelsController < ApplicationController
   def show
     @secondmodel = Secondmodel.find(params[:id])
-    @firstmodel = Firstmodel.find(params[:firstmodel_id])
+    @firstmodel = @secondmodel.firstmodel
   end
   def edit
     @secondmodel = Secondmodel.find(params[:id])

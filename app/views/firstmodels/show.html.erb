@@ -2,7 +2,7 @@
 
 <ul class="list-group well">
   <% @firstmodel.secondmodels.each do |secondmodel| %>
-  <li class="list-group-item"><%= secondmodel.name %> <%= link_to "View secondmodel", firstmodel_secondmodel_path(@firstmodel, secondmodel), :class => "btn btn-info btn-sm pull-right"%></li>
+  <li class="list-group-item"><strong><%= secondmodel.name %></strong> <%= link_to "View secondmodel", firstmodel_secondmodel_path(@firstmodel, secondmodel), :class => "btn btn-info btn-sm pull-right"%></li>
   <% end %>
 </ul>
 
