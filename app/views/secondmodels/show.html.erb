@@ -1,0 +1,10 @@
+<h1><%= @secondmodel.name %> Page</h1>
+
+
+<%= link_to "Edit", edit_firstmodel_secondmodel_path(@secondmodel) %> |
+
+<%= link_to "Delete", firstmodel_secondmodel_path(@secondmodel), :data => {:confirm => "You Sure?", :method => 'delete'} %> |
+
+<hr>
+
+<%= link_to "Back to firstmodel", firstmodel_path(@firstmodel) %>

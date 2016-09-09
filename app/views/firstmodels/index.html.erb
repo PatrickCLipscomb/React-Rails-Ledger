@@ -1,0 +1,9 @@
+<h1>firstmodel Page</h1>
+<hr>
+<ul>
+  <% @firstmodels.each do |firstmodel| %>
+    <li><%= firstmodel.name %> | <%= link_to "firstmodel Page", firstmodel_path(firstmodel) %></li>
+  <% end %>
+</ul>
+<hr>
+<%= link_to "Add a firstmodel", new_firstmodel_path %>
