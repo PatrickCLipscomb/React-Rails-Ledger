@@ -9,7 +9,7 @@ class RecordForm extends Component {
   }
   render() {
     return(
-      <form className="form-inline">
+      <form className="form-inline" onSubmit={this.handleSubmit.bind(this)}>
         <div className="form-group">
                     <input className="form-control" type="text" placeholder="Date"
                            name="date" value={this.state.date} onChange={this.handleChange.bind(this)} />
@@ -27,6 +27,13 @@ class RecordForm extends Component {
                 </button>
       </form>
     )
+  }
+  handleSubmit(event) {
+    event.preventDefault
+    $.post('', {record: this.state}, (data) => {
+    this.props.handleNewRecord(data)
+    this.setState({title: '', date: '', amount: ''})
+    })
   }
   handleChange(event) {
     var name = event.target.name
