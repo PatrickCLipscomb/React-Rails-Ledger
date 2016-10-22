@@ -28,6 +28,13 @@ class RecordForm extends Component {
       </form>
     )
   }
+  handleSubmit(event) {
+    event.preventDefault
+    $.post('', {record: this.state}, (data) => {
+    this.props.handleNewRecord(data)
+    this.setState({title: '', date: '', amount: ''})
+    })
+  }
   handleChange(event) {
     var name = event.target.name
     this.setState({"" + name: event.target.value})
