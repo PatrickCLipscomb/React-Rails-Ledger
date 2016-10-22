@@ -7,7 +7,7 @@ class Records extends Component {
   }
   render () {
     const records = this.state.records.map( (record) =>
-      <Record key={record.id} record={record} onDelete={this.deleteThis.bind(this)}/>
+      <Record key={record.id} record={record} onEdit={this.editRecord.bind(this)} onDelete={this.deleteRecord.bind(this)}/>
   )
     return(
       <div className="records">
@@ -32,13 +32,18 @@ class Records extends Component {
       </div>
     )
   }
-<<<<<<< HEAD
+  editRecord(record, data) {
+    var index = this.state.records.slice().indexOf(record)
+    this.setState({records: this.state.records.splice(index, 1, data)})
+  }
   addRecord(record) {
+    console.log(this.state.records)
     var records = this.state.records.slice()
     records.push(record)
     this.setState({records: records})
-=======
-  deleteThis(record) {
+  }
+  deleteRecord(record) {
+    console.log(this.state.records)
     var records = this.state.records.slice()
     var index = records.indexOf(record)
     this.setState({records: records.splice(index, 1)})
@@ -68,6 +73,5 @@ class Records extends Component {
   }
   balance() {
     return this.credits() + this.debits()
->>>>>>> 0d27b1e5106499b428f02de5c1cc3547fecf058e
   }
 }
