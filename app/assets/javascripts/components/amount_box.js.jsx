@@ -1,4 +1,6 @@
-class AmountBox extends Component {
+
+
+class AmountBox extends React.Component {
   render() {
     var panel = "panel panel-" + this.props.type
     return(

@@ -1,4 +1,6 @@
-class Record extends Component {
+
+
+class Record extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -7,7 +9,7 @@ class Record extends Component {
   }
   render() {
     return(
-      this.state.editable ? this.recordForm() : this.recordRow();
+      this.state.editable ? this.recordForm() : this.recordRow()
     )
   }
   recordRow() {
@@ -23,7 +25,7 @@ class Record extends Component {
           {amountFormat(this.props.record.amount)}
         </td>
         <td>
-          <a className="btn btn-default" onClick={this.handleToggle.bind(this)}>Edit</a>
+          <a className="btn btn-default" onClick={this.handleToggle}>Edit</a>
           <a className="btn btn-danger" onClick={this.handleDelete.bind(this)}>Delete</a>
         </td>
       </tr>
@@ -43,7 +45,7 @@ class Record extends Component {
         </td>
         <td>
           <a className="btn btn-default" onClick={this.handleEdit.bind(this)} >Update</a>
-          <a className="btn btn-danger" onClick={this.handleToggle.bind(this)} >Cancel</a>
+          <a className="btn btn-danger" onClick={this.handleToggle} >Cancel</a>
         </td>
       </tr>
     )

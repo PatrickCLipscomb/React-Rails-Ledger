@@ -1,11 +1,14 @@
-class RecordForm extends Component {
-  constructor() {
-    super()
+
+
+class RecordForm extends React.Component {
+  constructor(props) {
+    super(props)
     this.state = {
       title: '',
       date: '',
       amount: ''
     }
+
   }
   render() {
     return(
@@ -22,31 +25,30 @@ class RecordForm extends Component {
                     <input type="number" className="form-control" placeholder="Amount"
                            name="amount" value={this.state.amount} onChange={this.handleChange.bind(this)} />
                 </div>
-        <button type="submit" className="btn btn-primary" disabled={!this.valid}>
+        <button type="submit" className="btn btn-primary" disabled={!this.valid.bind(this)}>
                     Create Record
                 </button>
       </form>
     )
   }
-  handleSubmit(event) {
-    event.preventDefault
-    $.post('', {record: this.state}, (data) => {
-    this.props.handleNewRecord(data)
-    this.setState({title: '', date: '', amount: ''})
-    })
-  }
   handleChange(event) {
     var name = event.target.name
-    this.setState({"" + name: event.target.value})
+    var obj = {}
+    obj["" + name] = event.target.value
+    this.setState({obj})
   }
   valid() {
     return this.state.title && this.state.date && this.state.amount;
   }
   handleSubmit(event) {
     event.preventDefault()
-    $.post('', {record: this.state}, (data) =>
+    $.post('', {record: this.state}, (data) => {
       this.props.handleNewRecord(data)
-      this.setState({title: '', amount: '', date: ''})
-    )
+      this.setState({
+        title: '',
+        date: '',
+        amount: ''
+      })
+    })
   }
 }

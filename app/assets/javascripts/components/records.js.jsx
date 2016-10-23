@@ -1,4 +1,6 @@
-class Records extends Component {
+
+
+class Records extends React.Component {
   constructor(props) {
     super()
     this.state = {
@@ -15,7 +17,7 @@ class Records extends Component {
         <AmountBox type="success" amount={this.credits()} text="Credit" />
         <AmountBox type="danger" amount={this.debits()} text="Debit" />
         <AmountBox type="info" amount={this.balance()} text="Balance" />
-        <RecordFrom handleNewRecord={this.addRecord.bind(this)} />
+        <RecordForm handleNewRecord={this.addRecord.bind(this)} />
         <table className="table table-bordered">
           <thead>
             <tr>

@@ -1,2 +1,2 @@
 @amountFormat = (amount) ->
-  '$' + Number(amount).toLocalString()
+  '$' + Number(amount).toLocaleString()
